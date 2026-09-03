@@ -1,0 +1,1 @@
+!function(){var e=window.location,t=document.createElement("meta");t.name="author",t.content=e.hostname;var n=document.createElement("link");n.rel="canonical",n.href=e.origin+e.pathname,document.head.appendChild(t),document.head.appendChild(n)}();

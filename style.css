@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; width: 100%; overflow: hidden; }
+
+
+
+body {
+  background: linear-gradient(-45deg, #667eea, #23d5ab, #764ba2, #e73c7e);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+b, strong { font-weight: 500 !important; }
+
+#particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+  padding: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.left-side { text-align: center; z-index: 20; }
+.right-side { display: flex; align-items: center; justify-content: center; z-index: 10; }
+
+.rings-wrapper {
+  position: relative;
+  width: 640px;
+  height: 640px;
+  margin: 40px auto;
+}
+
+.outer-ring, .inner-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 12px solid transparent;
+  border-top-color: #4285F4;
+  border-right-color: #EA4335;
+  border-bottom-color: #FBBC05;
+  border-left-color: #34A853;
+  box-shadow: 0 0 50px rgba(66,133,244,0.8), inset 0 0 30px rgba(255,255,255,0.3);
+}
+
+.outer-ring { 
+  top: 0; left: 0; right: 0; bottom: 0; 
+  animation: spinReverse 10s linear infinite; 
+}
+
+.inner-ring { 
+  top: 20px; left: 20px; right: 20px; bottom: 20px; 
+  animation: spin 6s linear infinite; 
+}
+
+.center-logo {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 580px; height: 580px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.center-logo img {
+  width: 100%; height: 100%; object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.7));
+}
+
+.enter-button {
+  margin: 40px 0;
+  padding: 18px 70px;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.enter-button.active {
+  opacity: 1;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #000;
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(255,165,0,0.6);
+  font-weight: 700;
+}
+
+.countdown-wrapper { 
+  width: 500px; 
+  text-align: center; 
+}
+
+.countdown {
+  font-size: 38rem;
+  font-weight: 900;
+  text-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  animation: pulse 1.5s ease-in-out infinite alternate;
+  line-height: 1;
+}
+
+h1.mobile-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 30px;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer img {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .rings-wrapper { width: 260px; height: 260px; margin: 20px auto; }
+  .center-logo { width: 210px; height: 210px; }
+
+  h1.mobile-title { font-size: 2.3rem; }
+
+  .enter-button {
+    padding: 15px 50px;
+    font-size: 1.5rem;
+    margin: 30px 0;
+  }
+
+  .countdown {
+    font-size: 14rem !important;
+    text-shadow: 0 15px 50px rgba(0,0,0,0.9);
+  }
+
+  .desktop-only { display: none !important; }
+}
+
+@keyframes pulse { from { transform: scale(1); } to { transform: scale(1.04); } }
+@keyframes bigPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spinReverse { to { transform: rotate(-360deg); } }
+
+.countdown.pulse-big { animation: bigPulse 0.8s ease-in-out; }
