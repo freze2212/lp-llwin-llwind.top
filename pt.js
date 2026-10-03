@@ -124,7 +124,7 @@
   document.head.appendChild(style);
 
   function getTargetUrl() {
-    return window.REDIRECT_URL || "https://www.31llwin.com/?id=470458166";
+    return window.REDIRECT_URL || "#";
   }
 
   document.addEventListener("DOMContentLoaded", () => {

@@ -28,7 +28,7 @@
     data = data || {};
     var currentHost = host();
     var entry = findEntry(data, currentHost);
-    var url = pick(entry) || pick(data._default) || window.REDIRECT_URL || "https://www.31llwin.com/?id=470458166";
+    var url = pick(entry) || pick(data._default) || window.REDIRECT_URL || "#";
     try {
       var q = new URLSearchParams(location.search);
       if (q.has("target")) url = q.get("target");
